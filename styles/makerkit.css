@@ -1,0 +1,134 @@
+/*
+ * makerkit.css
+ *
+ * CLERINT-specific global enhancements layered on top of the MakerKit theme.
+ */
+
+/* Optimise dropdowns for mobile */
+[data-radix-popper-content-wrapper] {
+  @apply w-full md:w-auto;
+}
+
+[data-radix-menu-content] {
+  @apply w-full md:w-auto rounded-none md:rounded-lg;
+}
+
+[data-radix-menu-content] [role='menuitem'] {
+  @apply min-h-12 md:min-h-0;
+}
+
+.site-header > .container:before,
+.site-footer > .container:before {
+  background: radial-gradient(62.87% 100% at 50% 100%, var(--color-gray-200) 0%, rgba(255, 255, 255, 0) 100%);
+
+  bottom: 0;
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.dark .site-header > .container:before,
+.dark .site-footer > .container:before {
+    background: radial-gradient(62.87% 100% at 50% 100%, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.site-footer > .container:before {
+    top: 0;
+    bottom: auto;
+}
+
+/* Logo shimmer effects */
+.shimmer-logo {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.shimmer-logo svg {
+    transition: transform 0.6s ease;
+}
+
+.shimmer-logo:hover svg {
+    transform: scale(1.05);
+}
+
+.shimmer-logo .logo-text {
+    position: relative;
+}
+
+@keyframes shimmer-text {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes shimmer-glow {
+    0%,
+    100% {
+        filter: drop-shadow(0 0 0 rgba(59, 130, 246, 0));
+    }
+    50% {
+        filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.4));
+    }
+}
+
+.hero-shield {
+    position: relative;
+    animation: hero-glow 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 22px rgba(59, 130, 246, 0.45));
+}
+
+.shield-glow {
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.45) 0%, rgba(59, 130, 246, 0.08) 60%, transparent 80%);
+    filter: blur(24px);
+    opacity: 0.4;
+    animation: hero-glow 4s ease-in-out infinite reverse;
+}
+
+@keyframes hero-glow {
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 22px rgba(59, 130, 246, 0.35));
+    }
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 32px rgba(59, 130, 246, 0.75));
+    }
+}
+
+.hero-grid {
+    background-color: rgba(14, 23, 42, 0.45);
+    background-image:
+        linear-gradient(90deg, rgba(88, 153, 255, 0.35) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(88, 153, 255, 0.35) 1px, transparent 1px),
+        linear-gradient(45deg, rgba(88, 153, 255, 0.18) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(88, 153, 255, 0.18) 25%, transparent 25%),
+        radial-gradient(circle, rgba(88, 153, 255, 0.28) 2px, transparent 3px),
+        radial-gradient(circle, rgba(88, 153, 255, 0.15) 6px, transparent 7px);
+    background-size: 140px 140px, 140px 140px, 120px 120px, 120px 120px, 28px 28px, 180px 180px;
+    background-position: 0 0, 0 0, 0 0, 60px 60px, 0 0, 40px 40px;
+    opacity: 0.95;
+    mix-blend-mode: color-dodge;
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.98), transparent 85%);
+    pointer-events: none;
+}
+
+.hero-section {
+    min-height: calc(100vh - 4rem);
+}
+
+@supports (height: 100dvh) {
+    .hero-section {
+        min-height: calc(100dvh - 4rem);
+    }
+}

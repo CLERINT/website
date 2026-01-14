@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@import '../styles/makerkit-theme.css';
+@import '../styles/theme.css';
+@import '../styles/theme.utilities.css';
+@import '../styles/shadcn-ui.css';
+@import '../styles/makerkit.css';
+
+@plugin 'tailwindcss-animate';
+
+@source '../{app,components,lib}/**/*.{ts,tsx}';
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--border, currentColor);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: theme(--color-muted-foreground);
+  }
+}
