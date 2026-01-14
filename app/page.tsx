@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ThemeToggle } from '@/components/theme-toggle';
+// ThemeToggle removed - keeping for future use
+// import { ThemeToggle } from '@/components/theme-toggle';
 import { RequestDemoModal } from '@/components/request-demo-modal';
 import {
   ArrowRight,
@@ -277,7 +278,6 @@ export default function Home() {
                 Request Demo
               </Button>
             </RequestDemoModal>
-            <ThemeToggle />
           </div>
         </div>
       </header>
