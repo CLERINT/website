@@ -62,9 +62,9 @@ jobs:
           username: ${{ secrets.K8S_USER }}
           key: ${{ secrets.K8S_SSH_KEY }}
           script: |
-            # Update deployment with new image
+            # Update deployment with new image (lowercase required for docker)
             kubectl set image deployment/clerint-website \
-              clerint-website=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
+              clerint-website=ghcr.io/clerint/website:latest \
               -n clerint
 
             # Wait for rollout to complete
